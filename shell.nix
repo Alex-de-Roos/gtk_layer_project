@@ -10,4 +10,7 @@ pkgs.mkShell {
     gtk4-layer-shell
     gcc
   ];
+
+  RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
+
 }
