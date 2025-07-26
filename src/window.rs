@@ -1,6 +1,8 @@
 use gtk::{gdk::Display, prelude::{BoxExt, GridExt, GtkWindowExt, WidgetExt}, style_context_add_provider_for_display, Align, Application, ApplicationWindow, Box, CssProvider, Grid, Label, Orientation, STYLE_PROVIDER_PRIORITY_APPLICATION};
 use gtk_layer_shell::{Edge, LayerShell, Layer};
 
+use super::modules::session;
+
 pub fn start_window(application: &Application) {
     let window = ApplicationWindow::new(application);
     
@@ -11,7 +13,7 @@ pub fn start_window(application: &Application) {
     window.set_layer(Layer::Overlay);
     window.auto_exclusive_zone_enable();
 
-     let anchors = [
+    let anchors = [
         (Edge::Left, true),
         (Edge::Right, true),
         (Edge::Top, false),
@@ -23,7 +25,7 @@ pub fn start_window(application: &Application) {
     }
 
     /*
-        load contents / modules
+        setup base grid / bar
      */
     let bar_grid = Grid::new();
     bar_grid.add_css_class("bar");
@@ -58,6 +60,13 @@ pub fn start_window(application: &Application) {
     bar_grid.attach(&left_box, 0, 0, 1, 1);
     bar_grid.attach(&middle_box, 1, 0, 1, 1);
     bar_grid.attach(&right_box, 2, 0, 1, 1);
+
+    /*
+        load contents / modules
+     */
+    let session_item = session::get_module();
+
+    right_box.append(&session_item);
 
     window.set_child(Some(&bar_grid));
 

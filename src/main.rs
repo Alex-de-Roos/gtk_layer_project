@@ -2,6 +2,7 @@ use gtk::{gio::prelude::{ApplicationExt, ApplicationExtManual}, Application};
 
 mod window;
 use window::{start_window, load_css};
+mod modules;
 
 const APP_ID: &str = "hell.gtk_item._1";
 

@@ -1,13 +1,22 @@
+/* 
+    variables
+*/
+
+
+
+/* 
+    impl
+*/
+
 * {
+    background: none;
     background-color: rgba(0, 0, 0, 0);
+    color: white;
+    transition: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 
 .bar {
     background-color: gray;
-    /* margin-top: 0.25rem;
-    margin-bottom: 0.125rem;
-    margin-left: 0.125rem;
-    margin-right: 0.125rem; */
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     margin-left: 0.5rem;
@@ -15,13 +24,25 @@
     border-radius: 4px;
 }
 
-label {
-    color: white;
-}
-
-
 .middle, .right {
     border-radius: 4px;
     background-color: slategray;
     padding: 4px;
+}
+
+
+.image-button {
+        background: none;
+        border: none;
+        border-radius: none;
+        margin: 0;
+        padding: 0;
+    }
+
+.module-session button {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+menubutton:hover {
+    background-color: rgba(255, 255, 255, 1);
 }
