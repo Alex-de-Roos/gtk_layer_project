@@ -1,7 +1,13 @@
 /* 
     variables
 */
-
+:root {
+    --main-bg-color: #362f56;
+    --main-text-color: white;
+    --corner-rounding: 4px;
+    --bar-margin: 0.5rem;
+    --module-spacing: 0.5rem;
+}
 
 
 /* 
@@ -11,38 +17,44 @@
 * {
     background: none;
     background-color: rgba(0, 0, 0, 0);
-    color: white;
+    color: var(--main-text-color);
     transition: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: none;
 }
 
 .bar {
-    background-color: gray;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    border-radius: 4px;
+    /* background-color: var(--main-bg-color); */
+    margin-top: 0;
+    margin-bottom: var(--bar-margin);
+    margin-left: var(--bar-margin);
+    margin-right: var(--bar-margin);
+    border-radius: var(--corner-rounding);
 }
 
 .middle, .right {
-    border-radius: 4px;
-    background-color: slategray;
+    border-radius: var(--corner-rounding);
+    background-color: var(--main-bg-color);
     padding: 4px;
 }
 
 
-.image-button {
-        background: none;
-        border: none;
-        border-radius: none;
-        margin: 0;
-        padding: 0;
-    }
-
-.module-session button {
-    background-color: rgba(0, 0, 0, 0);
+button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+button:active {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
-menubutton:hover {
-    background-color: rgba(255, 255, 255, 1);
+popover contents {
+    background-color: var(--main-bg-color);
+}
+
+popover arrow {
+    background-color: var(--main-bg-color);
+}
+popover {
+    margin-bottom: 0.5rem;
 }

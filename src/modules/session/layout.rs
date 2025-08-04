@@ -3,8 +3,7 @@ use gtk::{gio::{prelude::ActionMapExt, SimpleAction, SimpleActionGroup}, glib::o
 use super::functions;
 
 pub fn get_module() -> impl IsA<Widget> {
-    let container = Box::new(gtk::Orientation::Horizontal, 0);
-    container.add_css_class("module-session");
+    let container = crate::utils::builders::build_module_container("session");
 
     let menu_button = MenuButton::new();
     menu_button.set_icon_name("system-shutdown");
@@ -12,6 +11,7 @@ pub fn get_module() -> impl IsA<Widget> {
     let action_group = SimpleActionGroup::new();
     
     let popover = Popover::new();
+    popover.set_has_arrow(false);
     let popover_box = Box::new(gtk::Orientation::Vertical, 0);
 
     /*
