@@ -1,6 +1,7 @@
 ## TODO List
 
-- [ ] Create window for each monitor.
+- [ ] Create window for each monitor (via hyprctl).
+- [ ] Upgrade monitor support to lower level wayland protocol for multiple compositor support.
 - [ ] Create structure for instancing modules between windows.
 - [ ] Differentiate between module logic types, shared or single between bars.
 - [ ] Create structure for running event listeners in new threads.
