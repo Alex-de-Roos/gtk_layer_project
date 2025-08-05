@@ -14,3 +14,5 @@
 - [ ] Wifi module
 - [ ] Applets module
 - [ ] Laptop power / battery module
+- [ ] Add configuration file
+- [ ] Package with nix
