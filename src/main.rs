@@ -13,15 +13,15 @@ fn main() {
 
 
     application.connect_startup(|_| load_css());
-    
+
     application.connect_activate(|application| {
 
         let monitors = monitors::get_monitors();
         for monitor in monitors {
             println!("monitor: {:#?}", monitor);
+            start_window(application, &monitor);
         }
 
-        start_window(application);
     });
 
     application.run();

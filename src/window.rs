@@ -1,10 +1,11 @@
-use gtk::{gdk::{prelude::{DisplayExt, MonitorExt}, Display, Monitor}, gio::prelude::{ListModelExt, ListModelExtManual}, glib::object::Cast, prelude::{BoxExt, GridExt, GtkWindowExt, WidgetExt}, style_context_add_provider_for_display, Align, Application, ApplicationWindow, Box, CssProvider, Grid, Label, Orientation, Window, STYLE_PROVIDER_PRIORITY_APPLICATION};
+use gtk::{gdk::Display, prelude::{BoxExt, GridExt, GtkWindowExt, WidgetExt}, style_context_add_provider_for_display, Align, Application, Box, CssProvider, Grid, Label, Orientation, Window, STYLE_PROVIDER_PRIORITY_APPLICATION};
 use gtk_layer_shell::{Edge, LayerShell, Layer};
+
+use crate::monitors::FusedMonitorType;
 
 use super::modules::session;
 
-pub fn start_window(application: &Application) {
-    // let window = ApplicationWindow::new(application);
+pub fn start_window(application: &Application, monitor: &FusedMonitorType) {
     let window = Window::new();
     window.set_application(Some(application));
     
@@ -14,7 +15,7 @@ pub fn start_window(application: &Application) {
     window.init_layer_shell();
     window.set_layer(Layer::Overlay);
     window.auto_exclusive_zone_enable();
-    window.set_monitor(None);
+    window.set_monitor(Some(&monitor.gtk_monitor));
 
     let anchors = [
         (Edge::Left, true),

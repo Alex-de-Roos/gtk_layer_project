@@ -5,15 +5,15 @@ use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct HyprMonitor {
-    id: u8,
-    name: String,
+    pub id: u8,
+    pub name: String,
 }
 
 #[derive(Debug)]
 pub struct FusedMonitorType {
-    id: u8,
-    name: String,
-    gtk_monitor: Monitor
+    pub id: u8,
+    pub name: String,
+    pub gtk_monitor: Monitor
 }
 
 pub fn get_monitors() -> Vec<FusedMonitorType> {
