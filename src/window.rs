@@ -1,10 +1,12 @@
-use gtk::{gdk::Display, prelude::{BoxExt, GridExt, GtkWindowExt, WidgetExt}, style_context_add_provider_for_display, Align, Application, ApplicationWindow, Box, CssProvider, Grid, Label, Orientation, STYLE_PROVIDER_PRIORITY_APPLICATION};
+use gtk::{gdk::{prelude::{DisplayExt, MonitorExt}, Display, Monitor}, gio::prelude::{ListModelExt, ListModelExtManual}, glib::object::Cast, prelude::{BoxExt, GridExt, GtkWindowExt, WidgetExt}, style_context_add_provider_for_display, Align, Application, ApplicationWindow, Box, CssProvider, Grid, Label, Orientation, Window, STYLE_PROVIDER_PRIORITY_APPLICATION};
 use gtk_layer_shell::{Edge, LayerShell, Layer};
 
 use super::modules::session;
 
 pub fn start_window(application: &Application) {
-    let window = ApplicationWindow::new(application);
+    // let window = ApplicationWindow::new(application);
+    let window = Window::new();
+    window.set_application(Some(application));
     
     /*
         setup bar
@@ -12,6 +14,7 @@ pub fn start_window(application: &Application) {
     window.init_layer_shell();
     window.set_layer(Layer::Overlay);
     window.auto_exclusive_zone_enable();
+    window.set_monitor(None);
 
     let anchors = [
         (Edge::Left, true),
